@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Container, CssBaseline, ThemeProvider} from '@material-ui/core';
+import {theme} from './theme';
+import './assets/style/main.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Title: React.FC = () => <h1>Hello</h1>;
+
+const App = () => (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    <Container maxWidth="xl" style={{padding: 40}}>
+      <Title />
+    </Container>
+  </ThemeProvider>
+);
 
 export default App;
