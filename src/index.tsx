@@ -2,12 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import App from './App';
+import {http} from './api';
 import {Posts} from './containers/pages/Posts';
 import {Post} from './containers/pages/Post';
 import {Login} from './containers/pages/Login';
 import {Works} from './containers/pages/Works';
 import {Gists} from './containers/pages/Gists';
 import {About} from './containers/pages/About';
+
+http('1');
 
 ReactDOM.render(
   <BrowserRouter>
