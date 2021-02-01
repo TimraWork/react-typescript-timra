@@ -29,10 +29,11 @@ export async function http<T>(request: string): Promise<HttpResponse<T>> {
 const getData = async (id: string) => {
   try {
     const resp = await http<IPost>(`https://jsonplaceholder.typicode.com/posts/${id}`);
-    console.log('Response', resp.parsedBody);
+    console.log('Response.parsedBody', resp.parsedBody);
+    console.log('Response', resp);
   } catch (resp) {
     console.log('Error', resp);
   }
 };
 
-getData('4');
+getData('1');

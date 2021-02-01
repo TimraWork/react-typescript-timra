@@ -4,7 +4,7 @@ import {createStyles, fade, Theme, makeStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme: Theme) => {
-  console.log('theme.palette = ', theme.palette);
+  // console.log('theme.palette = ', theme.palette);
   return createStyles({
     root: {
       flexGrow: 1
