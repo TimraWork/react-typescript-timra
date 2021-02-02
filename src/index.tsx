@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import App from './App';
-import {http} from './api';
-import {Posts} from './containers/pages/Posts';
+
+import {Posts} from './containers/pages/Posts.jsx';
 import {Post} from './containers/pages/Post';
 import {Login} from './containers/pages/Login';
 import {Works} from './containers/pages/Works';
@@ -12,8 +12,6 @@ import {About} from './containers/pages/About';
 
 import store from './store';
 import {Provider} from 'react-redux';
-
-http('1');
 
 ReactDOM.render(
   <Provider store={store}>

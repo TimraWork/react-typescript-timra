@@ -1,6 +1,7 @@
 import {createStore, compose, applyMiddleware} from 'redux';
 import rootReducer from './reducers';
 import {save} from 'redux-localstorage-simple';
+import {postsMiddleware} from './postsMiddleware';
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers =
@@ -10,7 +11,11 @@ const composeEnhancers =
 /* eslint-enable */
 
 const configureStore = (preloadedState) =>
-  createStore(rootReducer, preloadedState, composeEnhancers(applyMiddleware(save({namespace: 'post-list'}))));
+  createStore(
+    rootReducer,
+    preloadedState,
+    composeEnhancers(applyMiddleware(postsMiddleware, save({namespace: 'post-list'})))
+  );
 
 const store = configureStore({});
 
