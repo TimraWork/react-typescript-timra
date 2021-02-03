@@ -8,14 +8,12 @@ export async function http<T>(request: string): Promise<HttpResponse<T>> {
   const response: HttpResponse<T> = await fetch(request);
 
   try {
-    // Error if there is no body
     response.parsedBody = await response.json();
   } catch (err) {
     console.log('Error', err);
   }
 
   if (!response.ok) {
-    // Error if there is response status issue
     throw new Error(response.statusText);
   }
 
