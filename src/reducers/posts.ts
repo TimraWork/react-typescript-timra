@@ -1,4 +1,5 @@
 import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS} from '../actions/actionCreator';
+import {PostActionTypes} from '../types';
 
 const initialState = {
   data: [],
@@ -6,8 +7,9 @@ const initialState = {
   error: null
 };
 
-// eslint-disable-next-line
-export default function (state = initialState, action) {
+type InitialStateType = typeof initialState;
+
+const posts = (state: InitialStateType = initialState, action: PostActionTypes): Object => {
   switch (action.type) {
     case GET_POSTS_REQUEST: {
       return {
@@ -25,4 +27,6 @@ export default function (state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default posts;

@@ -2,15 +2,10 @@ import React, {useEffect, useState} from 'react';
 
 import {getPostsRequest} from '../../actions/actionCreator';
 import {connect} from 'react-redux';
-
-interface IPostData {
-  id: number;
-  title: string;
-}
-
+import {IPosts} from '../../types';
 interface IProps {
   posts: {
-    data: Array<IPostData>;
+    data: Array<IPosts>;
   };
   getPostsRequest: Function;
 }
