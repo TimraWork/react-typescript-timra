@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import App from './App';
 
-import {Posts} from './containers/pages/Posts.jsx';
+import {Posts} from './containers/pages/Posts';
 import {Post} from './containers/pages/Post';
 import {Login} from './containers/pages/Login';
 import {Works} from './containers/pages/Works';
