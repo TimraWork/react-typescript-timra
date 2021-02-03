@@ -12,7 +12,7 @@ export interface IPosts {
 
 // Actions
 interface IGetPostsRequest {
-  type: typeof GET_POSTS_REQUEST;
+  type: typeof GET_POSTS_REQUEST; // нельзя присвоить значение контанте, только типу
 }
 
 interface IGetPostsSuccess {

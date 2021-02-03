@@ -2,14 +2,14 @@ import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS} from '../actions/actionCreator';
 import {PostActionTypes} from '../types';
 
 const initialState = {
-  data: [],
-  isLoading: false,
-  error: null
+  data: [] as Array<Object> | [],
+  isLoading: false as boolean,
+  error: null as string | null
 };
 
 type InitialStateType = typeof initialState;
 
-const posts = (state: InitialStateType = initialState, action: PostActionTypes): Object => {
+const posts = (state: InitialStateType = initialState, action: PostActionTypes): InitialStateType => {
   switch (action.type) {
     case GET_POSTS_REQUEST: {
       return {

@@ -44,7 +44,7 @@ export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="sticky" color="transparent" className={classes.appBar}>
+    <AppBar position="sticky" color="inherit" className={classes.appBar}>
       <Container maxWidth="xl">
         <Toolbar>
           <Typography className={classes.logo}>

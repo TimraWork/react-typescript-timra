@@ -5,6 +5,7 @@ import './assets/style/main.scss';
 
 import {Header} from './components/Header';
 import {Footer} from './components/Footer';
+
 interface IProps {
   children: ReactChild | ReactFragment;
 }
