@@ -10,7 +10,7 @@ import {Works} from './containers/pages/Works';
 import {Gists} from './containers/pages/Gists';
 import {About} from './containers/pages/About';
 
-import store from './store';
+import store from './redux/store';
 import {Provider} from 'react-redux';
 
 ReactDOM.render(

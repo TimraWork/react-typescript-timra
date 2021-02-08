@@ -1,5 +1,5 @@
-import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS} from '../actions/actionCreator';
-import {PostActionTypes} from '../types';
+import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS} from './actions';
+import {PostActionTypes} from '../../types';
 
 const initialState = {
   data: [] as Array<Object> | [],

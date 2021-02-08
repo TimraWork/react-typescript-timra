@@ -1,4 +1,4 @@
-import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS, GET_POSTS_FAILURE} from './actions/actionCreator';
+import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS, GET_POSTS_FAILURE} from './redux/posts';
 
 // export const getPostsRequest = () => ({type: GET_POSTS_REQUEST});
 // export const getPostsSuccess = (data) => ({type: GET_POSTS_SUCCESS, payload: {data}});

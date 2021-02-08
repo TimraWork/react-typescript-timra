@@ -1,7 +1,7 @@
 import {createStore, compose, applyMiddleware} from 'redux';
-import rootReducer from './reducers';
+import rootReducer from './rootReducer';
 import {save} from 'redux-localstorage-simple';
-import {postsMiddleware} from './postsMiddleware';
+import thunkMiddleware from 'redux-thunk';
 
 const composeEnhancers =
   process.env.NODE_ENV !== 'production' &&
@@ -14,7 +14,7 @@ const configureStore = (preloadedState: any) =>
   createStore(
     rootReducer,
     preloadedState,
-    composeEnhancers(applyMiddleware(postsMiddleware, save({namespace: 'post-list'})))
+    composeEnhancers(applyMiddleware(thunkMiddleware, save({namespace: 'post-list'})))
   );
 
 const store = configureStore({});

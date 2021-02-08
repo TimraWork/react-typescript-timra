@@ -1,21 +1,21 @@
 import React, {useEffect, useState} from 'react';
 
-import {getPostsRequest} from '../../actions/actionCreator';
+import {getPostsThunk} from '../../redux/posts';
 import {connect} from 'react-redux';
 import {IPosts} from '../../types';
 interface IProps {
   posts: {
     data: Array<IPosts>;
   };
-  getPostsRequest: Function;
+  getPostsThunk: Function;
 }
 
-const PagePosts: React.FC<IProps> = ({posts, getPostsRequest}) => {
+const PagePosts: React.FC<IProps> = ({posts, getPostsThunk}) => {
   const [postsList, setPostsList] = useState(posts.data);
 
   useEffect(() => {
-    getPostsRequest();
-  }, [getPostsRequest]);
+    getPostsThunk();
+  }, [getPostsThunk]);
 
   useEffect(() => {
     setPostsList(posts.data);
@@ -30,4 +30,4 @@ const PagePosts: React.FC<IProps> = ({posts, getPostsRequest}) => {
   );
 };
 
-export const Posts = connect((state) => state, {getPostsRequest})(PagePosts);
+export const Posts = connect((state) => state, {getPostsThunk})(PagePosts);
