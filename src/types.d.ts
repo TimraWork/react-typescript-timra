@@ -1,13 +1,13 @@
 import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS, GET_POSTS_FAILURE} from './redux/posts';
 
-// export const getPostsRequest = () => ({type: GET_POSTS_REQUEST});
-// export const getPostsSuccess = (data) => ({type: GET_POSTS_SUCCESS, payload: {data}});
-// export const getPostsFailure = () => ({type: GET_POSTS_FAILURE});
-
-// Store
-export interface IPosts {
+export interface IPost {
   id: number;
-  title: string;
+  title: {rendered: string};
+}
+
+export enum ResultCodesEnum {
+  Success = 0,
+  Error = 1
 }
 
 // Actions

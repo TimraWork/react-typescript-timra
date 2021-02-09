@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 
 import {getPostsThunk} from '../../redux/posts';
 import {connect} from 'react-redux';
-import {IPosts} from '../../types';
+import {IPost} from '../../types';
 interface IProps {
   posts: {
-    data: Array<IPosts>;
+    data: Array<IPost>;
   };
   getPostsThunk: Function;
 }
@@ -23,8 +23,10 @@ const PagePosts: React.FC<IProps> = ({posts, getPostsThunk}) => {
 
   return (
     <>
-      {postsList.map(({id, title}) => (
-        <div key={id}>{title}</div>
+      {postsList.map(({id, title}, idx) => (
+        <div key={id}>
+          <strong>{idx}.__ </strong> {title}
+        </div>
       ))}
     </>
   );
