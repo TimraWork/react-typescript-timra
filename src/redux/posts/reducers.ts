@@ -1,5 +1,4 @@
-import {GET_POSTS_REQUEST, GET_POSTS_SUCCESS} from './actions';
-import {PostActionTypes} from '../../types';
+import {ActionTypes} from '../../types';
 
 const initialState = {
   data: [] as Array<Object> | [],
@@ -9,15 +8,15 @@ const initialState = {
 
 type InitialStateType = typeof initialState;
 
-const posts = (state: InitialStateType = initialState, action: PostActionTypes): InitialStateType => {
+const posts = (state: InitialStateType = initialState, action: ActionTypes): InitialStateType => {
   switch (action.type) {
-    case GET_POSTS_REQUEST: {
+    case 'timra/posts/GET_REQUEST': {
       return {
         ...state,
         isLoading: true
       };
     }
-    case GET_POSTS_SUCCESS: {
+    case 'timra/posts/SET_SUCCESS': {
       return {
         ...state,
         data: action.payload.data,
