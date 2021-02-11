@@ -16,7 +16,7 @@ const _transformPosts = ({id, title}: IPost): IPostTransform => {
   };
 };
 
-export const getPosts = async () => {
+export const getPostsRequest = async () => {
   try {
     // const {data} = await axios.get<IPost[]>('https://timra.ru/timra/wp-json/wp/v2/posts?_embed&per_page=20&page=1');
     const {data} = await axios.get('https://timra.ru/timra/wp-json/wp/v2/posts?_embed&per_page=20&page=1');
@@ -27,4 +27,4 @@ export const getPosts = async () => {
   }
 };
 
-getPosts();
+getPostsRequest();
