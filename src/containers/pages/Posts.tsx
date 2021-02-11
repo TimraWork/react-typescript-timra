@@ -4,6 +4,7 @@ import {getPostsThunk} from '../../redux/posts';
 import {connect} from 'react-redux';
 import {IPost} from '../../types';
 import {Loader} from '../../components/Loader';
+import {Fade} from '@material-ui/core';
 interface IProps {
   posts: {
     data: Array<IPost>;
@@ -31,10 +32,13 @@ const PagePosts: React.FC<IProps> = ({posts, getPostsThunk}) => {
   return (
     <>
       {isLoading && <Loader />}
+
       {postsList.map(({id, title}, idx) => (
-        <div key={id}>
-          <strong>{idx}.__ </strong> {title}
-        </div>
+        <Fade in={true} timeout={800}>
+          <div key={id}>
+            <strong>{idx}.__ </strong> {title}
+          </div>
+        </Fade>
       ))}
     </>
   );
