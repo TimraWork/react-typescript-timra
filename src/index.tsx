@@ -10,24 +10,28 @@ import {Works} from './containers/pages/Works';
 import {Gists} from './containers/pages/Gists';
 import {About} from './containers/pages/About';
 
-import store from './redux/store';
+import {store, persistor} from './redux/store';
+import {PersistGate} from 'redux-persist/integration/react';
+
 import {Provider} from 'react-redux';
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App>
-        <Switch>
-          <Route exact path="/" component={Posts} />
-          <Route path="/login" component={Login} />
-          <Route path="/posts" component={Posts} />
-          <Route exact path="/posts/:id" component={Post} />
-          <Route path="/about" component={About} />
-          <Route path="/works" component={Works} />
-          <Route path="/gists" component={Gists} />
-        </Switch>
-      </App>
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <App>
+          <Switch>
+            <Route exact path="/" component={Posts} />
+            <Route path="/login" component={Login} />
+            <Route path="/posts" component={Posts} />
+            <Route exact path="/posts/:id" component={Post} />
+            <Route path="/about" component={About} />
+            <Route path="/works" component={Works} />
+            <Route path="/gists" component={Gists} />
+          </Switch>
+        </App>
+      </BrowserRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );

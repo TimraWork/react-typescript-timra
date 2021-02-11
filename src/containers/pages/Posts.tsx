@@ -18,8 +18,10 @@ const PagePosts: React.FC<IProps> = ({posts, getPostsThunk}) => {
   const [isLoading, setIsLoading] = useState(posts.isLoading);
 
   useEffect(() => {
-    getPostsThunk();
-  }, [getPostsThunk]);
+    if (!posts.data.length) {
+      getPostsThunk();
+    }
+  }, [getPostsThunk, posts.data.length]);
 
   useEffect(() => {
     setPostsList(posts.data);
@@ -27,15 +29,15 @@ const PagePosts: React.FC<IProps> = ({posts, getPostsThunk}) => {
 
   useEffect(() => {
     setIsLoading(posts.isLoading);
-  }, [posts.isLoading]);
+  }, [posts.isLoading, getPostsThunk]);
 
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading || !posts.data.length ? <Loader /> : null}
 
       {postsList.map(({id, title}, idx) => (
-        <Fade in={true} timeout={800}>
-          <div key={id}>
+        <Fade key={id} in={true} timeout={800}>
+          <div>
             <strong>{idx}.__ </strong> {title}
           </div>
         </Fade>

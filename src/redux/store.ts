@@ -2,6 +2,15 @@ import {createStore, compose, applyMiddleware} from 'redux';
 import rootReducer from './rootReducer';
 import {save} from 'redux-localstorage-simple';
 import thunkMiddleware from 'redux-thunk';
+import {persistStore, persistReducer} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+  key: 'root',
+  storage
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const composeEnhancers =
   process.env.NODE_ENV !== 'production' &&
@@ -12,11 +21,12 @@ const composeEnhancers =
 
 const configureStore = (preloadedState: any) =>
   createStore(
-    rootReducer,
+    persistedReducer,
     preloadedState,
     composeEnhancers(applyMiddleware(thunkMiddleware, save({namespace: 'post-list'})))
   );
 
 const store = configureStore({});
+const persistor = persistStore(store);
 
-export default store;
+export {store, persistor};
