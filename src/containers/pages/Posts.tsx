@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {IPost} from '../../types';
 import {Loader} from '../../components/Loader';
 import {Fade} from '@material-ui/core';
+
 interface IProps {
   posts: {
     data: Array<IPost>;

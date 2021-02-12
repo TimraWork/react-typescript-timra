@@ -1,11 +1,11 @@
-import {PostsAction} from './actions';
-import {getPostsRequest} from '../api';
 import {ThunkAction} from 'redux-thunk';
 import {RootState} from '../rootReducer';
 import {Action} from 'redux';
+import {actionPostsSuccess, actionPostsRequest} from './actions';
+import {getPostsRequest} from '../api';
 
 export const getPostsThunk = (): ThunkAction<void, RootState, unknown, Action<string>> => async (dispatch) => {
-  dispatch(PostsAction.Request());
+  dispatch(actionPostsRequest());
   const postsList = await getPostsRequest();
-  dispatch(PostsAction.Success(postsList));
+  dispatch(actionPostsSuccess(postsList));
 };

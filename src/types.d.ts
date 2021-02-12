@@ -1,3 +1,5 @@
+import * as PostsActions from './redux/posts/actions';
+
 export interface IPost {
   id: number;
   title: {rendered: string};
@@ -10,7 +12,7 @@ export enum ResultCodesEnum {
 
 // Определить тип
 export type InferValueTypes<T> = T extends {[key: string]: infer U} ? U : never;
-export type ActionTypes = ReturnType<InferValueTypes<typeof actions>>;
+export type ActionTypes = ReturnType<InferValueTypes<typeof PostsActions>>;
 
 // Импортируем action creators как actions,
 // берем их ReturnType (тип возвращаемого значения — экшен),
