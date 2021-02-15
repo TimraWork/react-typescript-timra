@@ -35,9 +35,8 @@ const PagePosts: React.FC<IProps> = ({posts, getPostsThunk}) => {
   return (
     <>
       {isLoading || !posts.data.length ? <Loader /> : null}
-
       {postsList.map(({id, title}, idx) => (
-        <Fade key={id} in={true} timeout={800}>
+        <Fade key={id} in={true} timeout={200 * idx}>
           <div>
             <strong>{idx}.__ </strong> {title}
           </div>
