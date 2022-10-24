@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {IPost} from '../../types';
 import {Loader} from '../../components/Loader';
 import {Fade} from '@material-ui/core';
+import { GoogleLogin } from '../../components/parts/google-login2';
 
 interface IProps {
   posts: {
@@ -34,7 +35,9 @@ const PagePosts: React.FC<IProps> = ({posts, getPostsThunk}) => {
 
   return (
     <>
+
       {isLoading ? <Loader /> : null}
+      <GoogleLogin />
       {postsList?.map(({id, title}, idx) => (
         <Fade key={id} in={true} timeout={200 * idx}>
           <div>
